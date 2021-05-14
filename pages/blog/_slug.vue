@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <article>
+    <article v-if="post && post.title && post.content">
       <h1 class="title">{{ post.title.rendered }}</h1>
       <p v-html="post.content.rendered"></p>
     </article>
