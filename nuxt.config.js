@@ -2,12 +2,15 @@ import axios from 'axios'
 
 export default {
   generate: {
-    async routes () {
-      let response = await axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts') 
-      return response.data.map((post) => ({
-        route: 'blog/' + post.slug,
-        payload: post
-      }))
+    routes: () => {
+      return axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts').then((response) => {
+        return response.data.map((post) => {
+          return {
+            route: 'blog/' + post.slug,
+            payload: post
+          }
+        })
+      })
     }
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
