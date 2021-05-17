@@ -8,6 +8,8 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     head () {
       return {
@@ -25,12 +27,13 @@
         post: {}
       }
     },
-    async asyncData ({ params, $axios, payload }) {
-        let post
+    async asyncData ({ params, payload }) {
         if (payload) {
-            return payload
+            return {
+              post: payload
+            }
         } else {
-            return $axios.$get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts/' + params.id)
+            return axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts/' + params.id)
                 .then((response) => {
                     return {
                         post: response

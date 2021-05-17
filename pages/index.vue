@@ -15,7 +15,7 @@
           :key="post.id"
           class="button--grey"
         >
-          {{post.title.rendered}}
+          <span v-if="post && post.title"> {{post.title.rendered}} </span>
         </nuxt-link>
       </div>
     </div>
@@ -24,6 +24,8 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
+import axios from 'axios'
+
 export default {
   components: {
     Logo
@@ -39,18 +41,9 @@ export default {
       ]
     }
   },
-  async asyncData ({$axios, store}) {
-    return $axios.$get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts')
-      .then((response) => {
-        store.commit('frontPagePosts', response)
-      }).catch((error) => {
-        console.log(error)
-      })
-  },
-  computed: {
-    posts() {
-      return this.$store.state.posts
-    }
+  async asyncData () {
+    let response = await axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts')
+    return {posts: response}
   }
 }
 </script>
