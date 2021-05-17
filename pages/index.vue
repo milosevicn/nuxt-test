@@ -42,14 +42,16 @@ export default {
     }
   },
   async asyncData () {
-    return axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts')
+    try {
+     return axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts')
       .then((response) => {
         return {
             posts: response.data
         }
-      }).catch((error) => {
-        console.error(error);
-      })
+      }) 
+    } catch (error) {
+      console.error(error)
+    }
   }
 }
 </script>

@@ -28,14 +28,17 @@
               post: payload
             }
         } else {
-            return axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts/' + params.id)
-                .then((response) => {
-                    return {
-                        post: response.data
-                    }
-                }).catch((error) => {
-                  console.error(error);
-                })
+          try {
+           return axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts/' + params.id)
+            .then((response) => {
+                return {
+                    post: response.data
+                }
+            }) 
+          } catch (error) {
+            console.log(error)
+            return false
+          }
         }
     }
   }

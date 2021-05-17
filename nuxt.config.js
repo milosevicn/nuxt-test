@@ -3,16 +3,19 @@ import axios from 'axios'
 export default {
   generate: {
     routes: () => {
-      return axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts').then((response) => {
-        return response.data.map((post) => {
-          return {
-            route: 'blog/' + post.slug,
-            payload: post
-          }
-        })
-      }).catch((error) => {
-        console.error(error);
-      })
+      try {
+        return axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts').then((response) => {
+          return response.data.map((post) => {
+            return {
+              route: 'blog/' + post.slug,
+              payload: post
+            }
+          })
+        }) 
+      } catch (error) {
+        console.error(error)
+        return false
+      }
     }
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
