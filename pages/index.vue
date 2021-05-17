@@ -41,6 +41,9 @@ export default {
       ]
     }
   },
+  mounted () {
+    console.log(this.posts)
+  },
   async asyncData () {
     try {
      return axios.get('https://fortunly.com/wp-json/wp/v2/posts')

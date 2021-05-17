@@ -22,6 +22,9 @@
         ]
       }
     },
+    mounted () {
+      console.log(this.post)
+    },
     async asyncData ({ params, payload }) {
         if (payload) {
             return {
