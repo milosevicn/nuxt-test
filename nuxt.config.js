@@ -10,6 +10,8 @@ export default {
             payload: post
           }
         })
+      }).catch((error) => {
+        console.error(error);
       })
     }
   },
