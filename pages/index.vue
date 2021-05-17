@@ -43,7 +43,7 @@ export default {
   },
   async asyncData () {
     let response = await axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts')
-    return {posts: response}
+    return {posts: response.data}
   }
 }
 </script>

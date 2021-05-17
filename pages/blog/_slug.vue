@@ -22,11 +22,6 @@
         ]
       }
     },
-    data () {
-      return {
-        post: {}
-      }
-    },
     async asyncData ({ params, payload }) {
         if (payload) {
             return {
@@ -36,7 +31,7 @@
             return axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts/' + params.id)
                 .then((response) => {
                     return {
-                        post: response
+                        post: response.data
                     }
                 })
         }
