@@ -29,7 +29,7 @@
             }
         } else {
           try {
-           return axios.get('https://betting-sites.me.uk/wp-json/wp/v2/posts/' + params.id)
+           return axios.get('https://fortunly.com/wp-json/wp/v2/posts/' + params.id)
             .then((response) => {
                 return {
                     post: response.data
