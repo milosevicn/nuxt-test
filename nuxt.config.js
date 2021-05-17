@@ -3,15 +3,11 @@ import axios from 'axios'
 export default {
   generate: {
     async routes () {
-      try {
-        let response = await axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts') 
-        return response.data.map((post) => ({
-          route: 'blog/' + post.slug,
-          payload: post
-        }))
-      } catch (error) {
-        error({ statusCode: 404, message: error });
-      }
+      let response = await axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts') 
+      return response.data.map((post) => ({
+        route: 'blog/' + post.slug,
+        payload: post
+      }))
     }
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -62,7 +58,5 @@ export default {
   build: {
   },
 
-  target: 'static',
-  
-  ssr: false
+  target: 'static'
 }
