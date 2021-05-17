@@ -43,7 +43,7 @@ export default {
   },
   async asyncData () {
     try {
-     return axios.get('https://jsonplaceholder.typicode.com/posts')
+     return axios.get('https://betting-sites.me.uk/wp-json/wp/v2/posts')
       .then((response) => {
         return {
             posts: response.data
