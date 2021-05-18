@@ -15,7 +15,7 @@
           :key="post.id"
           class="button--grey"
         >
-          <span v-if="post && post.title"> {{post.title.rendered}} </span>
+          {{post.title.rendered}}
         </nuxt-link>
       </div>
     </div>
@@ -46,7 +46,7 @@ export default {
   },
   async asyncData () {
     try {
-     return axios.get('https://fortunly.com/wp-json/wp/v2/posts')
+     return axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts')
       .then((response) => {
         return {
             posts: response.data

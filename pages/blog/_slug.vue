@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <article v-if="post && post.title && post.content">
+    <article>
       <h1 class="title">{{ post.title.rendered }}</h1>
       <p v-html="post.content.rendered"></p>
     </article>
@@ -32,7 +32,7 @@
             }
         } else {
           try {
-           return axios.get('https://fortunly.com/wp-json/wp/v2/posts/' + params.id)
+           return axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts/' + params.id)
             .then((response) => {
                 return {
                     post: response.data
