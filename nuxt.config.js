@@ -2,6 +2,7 @@ import axios from 'axios'
 
 export default {
   generate: {
+    fallback: true,
     crawler: false,
     routes() {
       try {
