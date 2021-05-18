@@ -5,7 +5,7 @@ export default {
     crawler: false,
     routes() {
       try {
-        return axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts').then((response) => {
+        return axios.get('https://dev.bettingmate.uk/wp-json/wp/v2/posts').then((response) => {
           return response.data.map((post) => {
             return {
               route: 'blog/' + post.slug,

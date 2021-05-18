@@ -32,7 +32,7 @@
             }
         } else {
           try {
-           return axios.get('https://dev.betting-sites.me.uk/wp-json/wp/v2/posts/' + params.id)
+           return axios.get('https://dev.bettingmate.uk/wp-json/wp/v2/posts/' + params.id)
             .then((response) => {
                 return {
                     post: response.data
