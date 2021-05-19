@@ -46,7 +46,7 @@ export default {
   },
   async asyncData () {
     try {
-     return axios.get('https://dev.bettingmate.uk/wp-json/wp/v2/posts')
+     return axios.get('https://dev.betfy.co.uk/wp-json/wp/v2/posts')
       .then((response) => {
         return {
             posts: response.data
